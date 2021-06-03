@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Produto1",
+      "price": 50,
+      "date": "2020-11-04T16:30:10.710Z"
+    },
+    {
+      "id": "2",
+      "name": "Produto2",
+      "price": 60,
+      "date": "2020-11-04T21:24:10.710Z"
+    },
+    {
+      "id": "3",
+      "name": "Produto3",
+      "price": 70,
+      "date": "2020-11-05T21:14:10.710Z"
+    },
+    {
+      "name": "Gabriel Elias Salla",
+      "price": 500,
+      "date": "2021-06-03T20:04:50.466Z",
+      "id": "sCfIi8m"
+    }
+  ]
+}

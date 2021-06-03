@@ -1,0 +1,20 @@
+<section class="container">
+    <h2 class="titulo">Produtos</h2>
+    <table class="tabela">
+        <thead class="tabela__cabecalho">
+            <th class="tabela__cabecalho__conteudo">Produto</th>
+            <th class="tabela__cabecalho__conteudo">Preço</th>
+            <th class="tabela__cabecalho__conteudo">Data</th>
+        </thead>
+        <tbody *ngIf="products?.length; else emptyProducts">
+            <tr class="tabela__linha" *ngFor="let product of products">
+                <th class="tabela__conteudo">{{product?.name}}</th>
+                <th class="tabela__conteudo">{{product?.price | currency}}</th>
+                <th class="tabela__conteudo">{{product?.date | date:"short"}}</th>
+            </tr>
+        </tbody>
+    </table>
+    <ng-template #emptyProducts>
+        <p>Nenhum produto cadastrado</p>
+    </ng-template>
+</section>
