@@ -4,10 +4,11 @@ import { ProductsService } from './services/products.service';
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
+    styleUrls: ['./app.component.css']
 })
 export class AppComponent {
     title = 'products';
-    
-    constructor(private _service: ProductsService) { }
+    name = 'Angular 6';
+
+    constructor(private _service: ProductsService) {}
 }

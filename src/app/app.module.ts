@@ -1,4 +1,4 @@
-import { NewProductComponent } from './newProduct/new-product.component';
+import { NewProductComponent } from './product/newProduct/new-product.component';
 import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -8,20 +8,50 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
-import { ListProductsComponent } from './listProducts/list-products.component';
-import { registerLocaleData } from '@angular/common';
-import LocalePt from '@angular/common/locales/pt'
+import { ListProductsComponent } from './product/listProducts/list-products.component';
+import {
+    CommonModule,
+    NgLocaleLocalization,
+    NgLocalization,
+    registerLocaleData
+} from '@angular/common';
+import LocalePt from '@angular/common/locales/pt';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ModalProductComponent } from './product/modalProduct/modal-product.component';
+import { ModalConfirmationComponent } from './utils/modalConfirmation/modal-confirmation.component';
+import { ModalConfirmationService } from './utils/modalConfirmation/modal-confirmation.service';
+import { SidebarDirective } from './sidebar.directive';
 
 registerLocaleData(LocalePt, 'pt');
 
 @NgModule({
-    declarations: [AppComponent, NewProductComponent, ListProductsComponent],
-    imports: [BrowserModule, AppRoutingModule, FormsModule, MatButtonModule, MatSnackBarModule, BrowserAnimationsModule, HttpClientModule],
+    declarations: [
+        AppComponent,
+        NewProductComponent,
+        ListProductsComponent,
+        ModalProductComponent,
+        ModalConfirmationComponent,
+        SidebarDirective
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        MatButtonModule,
+        MatSnackBarModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        NgbModule
+    ],
     providers: [
         { provide: LOCALE_ID, useValue: 'pt' },
-        { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' }
+        { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
+        { provide: NgLocalization, useClass: NgLocaleLocalization },
+        ModalConfirmationService
     ],
-    bootstrap: [AppComponent],
+    entryComponents: [ModalConfirmationComponent],
+
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
