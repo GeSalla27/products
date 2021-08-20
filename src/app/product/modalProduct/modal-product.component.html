@@ -1,0 +1,78 @@
+<div class="modal-header">
+    <h2 class="formulario__titulo">Editar produto</h2>
+</div>
+<div class="modal-body">
+    <form class="formulario">
+        <div class="form-field">
+            <label class="form-field__label" for="code">Código</label>
+            <input
+                class="form-field__input"
+                id="code"
+                type="text"
+                [(ngModel)]="code"
+                name="code"
+                placeholder="Código"
+            />
+        </div>
+        <div class="form-field">
+            <label class="form-field__label" for="name">Nome</label>
+            <input
+                class="form-field__input"
+                id="name"
+                type="text"
+                [(ngModel)]="name"
+                name="name"
+                placeholder="Nome"
+            />
+        </div>
+        <div class="form-field">
+            <label class="form-field__label" for="price">Preço</label>
+            <input
+                class="form-field__input"
+                id="price"
+                type="number"
+                [(ngModel)]="price"
+                name="price"
+                placeholder="Preço"
+            />
+        </div>
+        <div class="form-field">
+            <label class="form-field__label" for="price">Data</label>
+            <input
+                class="form-field__input"
+                id="date"
+                type="text"
+                datetime="yyyy-MM-dd HH:mm:ss"
+                [ngModel]="updatedAt | date: 'short'"
+                name="date"
+                placeholder="Data"
+                disabled
+            />
+        </div>
+        <div
+            style="
+                display: flex;
+                justify-content: flex-end;
+                width: 100%;
+                padding: 0;
+                margin-right: 5px;
+            "
+        >
+            <button
+                type="button"
+                class="btn btn-outline-danger btn-sm"
+                style="margin-right: 5px;"
+                (click)="closeModal()"
+            >
+                Fechar
+            </button>
+            <button
+                type="button"
+                class="btn btn-success btn-sm"
+                (click)="saveModal()"
+            >
+                Salvar
+            </button>
+        </div>
+    </form>
+</div>
