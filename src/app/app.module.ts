@@ -21,6 +21,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalProductComponent } from './product/modalProduct/modal-product.component';
 import { ModalConfirmationComponent } from './utils/modalConfirmation/modal-confirmation.component';
 import { ModalConfirmationService } from './utils/modalConfirmation/modal-confirmation.service';
+import { SidebarModule } from 'ng-sidebar';
 
 registerLocaleData(LocalePt, 'pt');
 
@@ -30,7 +31,7 @@ registerLocaleData(LocalePt, 'pt');
         NewProductComponent,
         ListProductsComponent,
         ModalProductComponent,
-        ModalConfirmationComponent,
+        ModalConfirmationComponent
     ],
     imports: [
         BrowserModule,
@@ -40,7 +41,8 @@ registerLocaleData(LocalePt, 'pt');
         MatSnackBarModule,
         BrowserAnimationsModule,
         HttpClientModule,
-        NgbModule
+        NgbModule,
+        SidebarModule.forRoot()
     ],
     providers: [
         { provide: LOCALE_ID, useValue: 'pt' },
